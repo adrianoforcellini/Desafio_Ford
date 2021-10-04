@@ -49,9 +49,9 @@ const findRegion = (capital) => {
   const CO = ["Cuiabá", "Campo Grande", "Goiânia", "Brasília"];
   const SE = [
     "São Paulo",
+    "Vitória",
     "Belo Horizonte",
     "Rio de Janeiro",
-    "Espírito Santo",
   ];
   const S = ["Curitiba", "Porto Alegre", "Florianópolis"];
 
@@ -80,23 +80,20 @@ const findRoute = (origin, destination) => {
     return `Origem e destino se interligam diretamente (Mesma Região,${originRegion}): ${origin} >> ${destination}`;
   }
 
-  const directRoutes = [
-    ["N", "NE", "CO"],
-    ["NE", "SE", "CO", "N"],
-    ["SE", "CO", "S", "NE"],
-    ["S", "SE", "CO"],
-  ];
+  const directRoutes = {
+    N: ["NE", "CO"],
+    NE: ["SE", "CO", "N"],
+    CO: ["SE", "CO", "S", "NE"],
+    SE: ["CO", "S", "NE"],
+    S: ["SE", "CO"],
+  };
 
-  for (let i in directRoutes) {
-    if (
-      directRoutes[i].includes(originRegion) &&
-      directRoutes[i].includes(destinationRegion) 
-    ) {
-      return `As regiões de origem e destino fazem fronteira.${originRegion} >> ${destinationRegion}`;
-    }
+  if (directRoutes[originRegion].includes(destinationRegion)) {
+    return `As regiões de origem e destino fazem fronteira.${originRegion} >> ${destinationRegion}`;
+  } else {
+    return `As regiões de origem e destino não fazem fronteira.
+      ${originRegion} >> CO >> ${destinationRegion} `;
   }
-  return `As regiões de origem e destino não fazem fronteira.
-  ${originRegion} >> CO >> ${destinationRegion} `;
 };
 
-export default findRoute
+export default findRoute;
