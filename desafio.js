@@ -66,10 +66,7 @@ const findRegion = (capital) => {
   if (SE.includes(capital)) {
     return "SE";
   }
-  if (SE.includes(capital)) {
-    return "SE";
-  }
-  if (S.includes(capital)) {
+   if (S.includes(capital)) {
     return "S";
   }
 };
@@ -79,7 +76,7 @@ const findRoute = (origin, destination) => {
   const destinationRegion = findRegion(destination);
 
   if (originRegion === destinationRegion) {
-    return `Origem e destino se interligam diretamente: ${origin} >> ${destination}`;
+    return `Origem e destino se interligam diretamente (Mesma Região,${originRegion}): ${origin} >> ${destination}`;
   }
 
   const directRoutes = [
