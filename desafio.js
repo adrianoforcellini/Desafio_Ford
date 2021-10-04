@@ -52,7 +52,7 @@ const findRegion = (capital) => {
     "Rio de Janeiro",
     "Espírito Santo",
   ];
-  const S = ["Curitiba", "Porto Alegre", "Florianópolis "];
+  const S = ["Curitiba", "Porto Alegre", "Florianópolis"];
 
   if (N.includes(capital)) {
     return "N";
@@ -99,6 +99,4 @@ const findRoute = (origin, destination) => {
       ${originRegion} >> CO >> ${destinationRegion} `
     }
   };
-
-
 };
