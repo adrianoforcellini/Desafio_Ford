@@ -83,7 +83,6 @@ const findRoute = (origin, destination) => {
   const directRoutes = [
     ["N", "NE", "CO"],
     ["NE", "SE", "CO", "N"],
-    ["CO", "N", "NO", "SE", "S"],
     ["SE", "CO", "S", "NE"],
     ["S", "SE", "CO"],
   ];
@@ -91,7 +90,7 @@ const findRoute = (origin, destination) => {
   for (let i in directRoutes) {
     if (
       directRoutes[i].includes(originRegion) &&
-      directRoutes[i].includes(destinationRegion)
+      directRoutes[i].includes(destinationRegion) 
     ) {
       return `As regiões de origem e destino fazem fronteira.${originRegion} >> ${destinationRegion}`;
     }
