@@ -73,3 +73,32 @@ const findRegion = (capital) => {
     return "S";
   }
 };
+
+const findRoute = (origin, destination) => {
+  const originRegion = findRegion(origin);
+  const destinationRegion = findRegion(destination);
+
+  if (originRegion === destinationRegion) {
+    return `Origem e destino se interligam diretamente: ${origin} >> ${destination}`;
+  }
+
+  const directRoutes = [
+    ["N", "NE", "CO"],
+    ["NE", "SE", "CO", "N"],
+    ["CO", "N", "NO", "SE", "S"],
+    ["SE", "CO", "S", "NE"],
+    ["S", "SE", "CO"],
+  ];
+
+  for ( let i in directRoutes ){
+    if ( directRoutes[i].includes(originRegion) && directRoutes[i].includes(destinationRegion) ){
+      return `As regiões de origem e destino fazem fronteira.${originRegion} >> ${destinationRegion}`
+    }
+    else{
+      return `As regiões de origem e destino não fazem fronteira.
+      ${originRegion} >> CO >> ${destinationRegion} `
+    }
+  };
+
+
+};
