@@ -91,9 +91,7 @@ const findRoute = (origin, destination) => {
     if ( directRoutes[i].includes(originRegion) && directRoutes[i].includes(destinationRegion) ){
       return `As regiões de origem e destino fazem fronteira.${originRegion} >> ${destinationRegion}`
     }
-    else{
-      return `As regiões de origem e destino não fazem fronteira.
-      ${originRegion} >> CO >> ${destinationRegion} `
-    }
   };
+  return `As regiões de origem e destino não fazem fronteira.
+  ${originRegion} >> CO >> ${destinationRegion} `
 };
