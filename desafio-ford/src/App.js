@@ -4,8 +4,8 @@ import findRoute from "./utills/desafio";
 import { useState } from "react";
 
 function App() {
-  const [origin, setOrigin] = useState();
-  const [destiny, setDestiny] = useState();
+  const [origin, setOrigin] = useState("Aracaju");
+  const [destiny, setDestiny] = useState("Aracaju");
   const [route, setRoute] = useState();
 
   const changeOrigin = (e) => {
